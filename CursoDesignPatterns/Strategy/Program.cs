@@ -10,11 +10,17 @@ namespace CursoDesignPatterns
             Imposto icms = new ICMS();
             Imposto iccc = new ICCC();
 
+            Investimento cons = new Conservador();
+            Investimento moder = new Moderado();
+            Investimento arroj = new Arrojado();
+
             Orcamento grana = new Orcamento(10000.0);
 
             CalculadorDeImpostos calculator = new CalculadorDeImpostos();
+            CalculaInvestimento calcInv = new CalculaInvestimento();
 
             calculator.RealizaCalculo(grana, iccc);
+            calcInv.calculaInvestimento(grana, arroj);
 
         }
     }
