@@ -86,4 +86,6 @@
 --reference:/home/hugo/.nuget/packages/System.Threading.Timer/4.3.0/ref/netstandard1.2/System.Threading.Timer.dll
 --reference:/home/hugo/.nuget/packages/System.Xml.ReaderWriter/4.3.0/ref/netstandard1.3/System.Xml.ReaderWriter.dll
 --reference:/home/hugo/.nuget/packages/System.Xml.XDocument/4.3.0/ref/netstandard1.3/System.Xml.XDocument.dll
+/home/hugo/csharp/Linq/Musica.cs
+/home/hugo/csharp/Linq/Genero.cs
 /home/hugo/csharp/Linq/Program.cs

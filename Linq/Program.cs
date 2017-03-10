@@ -16,7 +16,7 @@ namespace Linq
         {
 
             var generos = new List<Genero>();
-            generos.Add(new Genero(1,"Rock"));
+            generos.Add(new Genero(1,"Glam Rock"));
             generos.Add(new Genero(2,"Rock and Roll"));
             generos.Add(new Genero(3,"Samba"));
             generos.Add(new Genero(4,"Eletro"));
@@ -30,43 +30,25 @@ namespace Linq
                 System.Console.WriteLine("ID:{0}\tGenero:{1}", gen.Id, gen.Name);
             }
 
+            var musicas = new List<Musica>()
+            {
+                new Musica{Id = 1, Name = "Cherry Pie", GeneroId = 1},
+                new Musica{Id = 2, Name = "Blue Suede Shoes", GeneroId = 2},
+                new Musica{Id = 3, Name = "A Grande Familia Theme", GeneroId = 3},
+                new Musica{Id = 4, Name = "Faixa Amarela", GeneroId = 3}
+            };
+
+            var query2 = from m in musicas
+                        join g in generos on m.GeneroId equals g.Id
+                        select new { m,g };
+            foreach (var mus in query2)
+            {
+                System.Console.WriteLine("ID: {0}\tName: {1}\tGenero: {2}", mus.m.Id, mus.m.Name, mus.g.Name);
+            }
+            
 
             Console.ReadKey();
         }
     }
-
-    public class Genero
-    {
-        public int Id {get ; set;}
-        public string Name {get;set;}
-
-        public Genero(int id,string name)
-        {
-            this.Id = id;
-            this.Name = name;
-        }
-
-        public static void ListAll(IList<Genero> collection)
-        {
-            foreach (var c in collection)
-            {
-                System.Console.WriteLine(c.Name);
-            }
-        }
-
-        public static void ListOne(IList<Genero> collection, string type)
-        {
-            foreach (var c in collection)
-            {
-                if (c.Name.Contains(type))
-                {
-                    System.Console.WriteLine(c.Name);                    
-                }
-            }
-        }
-
-       
-    }
-
-
+    
 }
