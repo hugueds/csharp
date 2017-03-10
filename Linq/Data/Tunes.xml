@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Tunes>
+    <Generos>
+        <Genero>
+            <GeneroId>1</GeneroId>
+            <Nome>Glam Rock</Nome>
+        </Genero>
+        <Genero>
+            <GeneroId>2</GeneroId>
+            <Nome>Rock N Roll</Nome>
+        </Genero>
+        <Genero>
+            <GeneroId>3</GeneroId>
+            <Nome>Samba</Nome>
+        </Genero>
+        <Genero>
+            <GeneroId>4</GeneroId>
+            <Nome>Eletro</Nome>
+        </Genero>
+    </Generos>
+
+    <Musicas>
+        <Musica>
+            <MusicaId>1</MusicaId>
+            <Nome>Cherry Pie</Nome>
+            <GeneroId>1</GeneroId>
+        </Musica>
+        <Musica>
+            <MusicaId>2</MusicaId>
+            <Nome>Blue Suede Shoes</Nome>
+            <GeneroId>2</GeneroId>
+        </Musica>
+        <Musica>
+            <MusicaId>3</MusicaId>
+            <Nome>A Grande Familia Theme</Nome>
+            <GeneroId>3</GeneroId>
+        </Musica>
+        <Musica>
+            <MusicaId>4</MusicaId>
+            <Nome>Faixa Amarela</Nome>
+            <GeneroId>3</GeneroId>
+        </Musica>
+    </Musicas>
+
+
+
+</Tunes>
