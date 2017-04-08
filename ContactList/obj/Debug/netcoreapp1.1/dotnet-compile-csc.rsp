@@ -198,5 +198,8 @@
 "/home/hugo/csharp/ContactList/Startup.cs"
 "/home/hugo/csharp/ContactList/Program.cs"
 "/home/hugo/csharp/ContactList/Controllers/ContactsController.cs"
+"/home/hugo/csharp/ContactList/Migrations/ContactsDbContextModelSnapshot.cs"
+"/home/hugo/csharp/ContactList/Migrations/20170326015523_AddContact.cs"
+"/home/hugo/csharp/ContactList/Migrations/20170326015523_AddContact.Designer.cs"
 "/home/hugo/csharp/ContactList/Models/ContactsDbContext.cs"
 "/home/hugo/csharp/ContactList/Models/Contact.cs"
