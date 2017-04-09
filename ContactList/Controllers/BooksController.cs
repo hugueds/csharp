@@ -6,9 +6,9 @@ namespace ContactList.Controllers
     
     public class BooksController : Controller
     {
-        private BooksDbContext _context ;
+        private ContactsDbContext _context ;
 
-        public BooksController(BooksDbContext ctx)
+        public BooksController(ContactsDbContext ctx)
         {
             _context = ctx;
         }

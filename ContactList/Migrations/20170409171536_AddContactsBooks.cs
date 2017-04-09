@@ -4,19 +4,28 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ContactList.Migrations
 {
-    public partial class AddBook : Migration
+    public partial class AddContactsBooks : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AlterColumn<string>(
-                name: "LastName",
-                table: "Contacts",
-                nullable: false,
-                oldClrType: typeof(string),
-                oldNullable: true);
+            migrationBuilder.CreateTable(
+                name: "Contacts",
+                columns: table => new
+                {
+                    ContactId = table.Column<int>(nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    EmailAddress = table.Column<string>(nullable: true),
+                    FirstName = table.Column<string>(maxLength: 100, nullable: false),
+                    LastName = table.Column<string>(nullable: false),
+                    Telephone = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Contacts", x => x.ContactId);
+                });
 
             migrationBuilder.CreateTable(
-                name: "Book",
+                name: "Books",
                 columns: table => new
                 {
                     BookID = table.Column<int>(nullable: false)
@@ -26,9 +35,9 @@ namespace ContactList.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Book", x => x.BookID);
+                    table.PrimaryKey("PK_Books", x => x.BookID);
                     table.ForeignKey(
-                        name: "FK_Book_Contacts_AuthorContactId",
+                        name: "FK_Books_Contacts_AuthorContactId",
                         column: x => x.AuthorContactId,
                         principalTable: "Contacts",
                         principalColumn: "ContactId",
@@ -36,21 +45,18 @@ namespace ContactList.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Book_AuthorContactId",
-                table: "Book",
+                name: "IX_Books_AuthorContactId",
+                table: "Books",
                 column: "AuthorContactId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Book");
+                name: "Books");
 
-            migrationBuilder.AlterColumn<string>(
-                name: "LastName",
-                table: "Contacts",
-                nullable: true,
-                oldClrType: typeof(string));
+            migrationBuilder.DropTable(
+                name: "Contacts");
         }
     }
 }

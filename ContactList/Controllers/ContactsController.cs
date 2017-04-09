@@ -19,6 +19,10 @@ namespace ContactList.Controllers
         [HttpGet]
         public IActionResult Index()
         {
+            _dbContext.Books.Add(new Book(){
+                Title  = "Era uma vez"
+            });
+            
             return View(_dbContext.Contacts);
         }
 

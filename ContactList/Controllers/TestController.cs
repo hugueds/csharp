@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace ContactList.Controllers
 {
@@ -19,6 +20,7 @@ namespace ContactList.Controllers
         }
         public IEnumerable<Contact> GetAll()
         {
+            Debug.WriteLine(_context.ToString());
             return _context.Contacts.ToList();
         }
         

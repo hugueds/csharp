@@ -28,7 +28,7 @@ namespace ContactList.Migrations
 
                     b.HasIndex("AuthorContactId");
 
-                    b.ToTable("Book");
+                    b.ToTable("Books");
                 });
 
             modelBuilder.Entity("ContactList.Models.Contact", b =>
