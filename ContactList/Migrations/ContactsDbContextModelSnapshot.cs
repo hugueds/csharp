@@ -15,6 +15,22 @@ namespace ContactList.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.0-rtm-22752");
 
+            modelBuilder.Entity("ContactList.Models.Book", b =>
+                {
+                    b.Property<int>("BookID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int?>("AuthorContactId");
+
+                    b.Property<string>("Title");
+
+                    b.HasKey("BookID");
+
+                    b.HasIndex("AuthorContactId");
+
+                    b.ToTable("Books");
+                });
+
             modelBuilder.Entity("ContactList.Models.Contact", b =>
                 {
                     b.Property<int>("ContactId")
@@ -26,13 +42,21 @@ namespace ContactList.Migrations
                         .IsRequired()
                         .HasMaxLength(100);
 
-                    b.Property<string>("LastName");
+                    b.Property<string>("LastName")
+                        .IsRequired();
 
                     b.Property<string>("Telephone");
 
                     b.HasKey("ContactId");
 
                     b.ToTable("Contacts");
+                });
+
+            modelBuilder.Entity("ContactList.Models.Book", b =>
+                {
+                    b.HasOne("ContactList.Models.Contact", "Author")
+                        .WithMany("Books")
+                        .HasForeignKey("AuthorContactId");
                 });
         }
     }

@@ -5,6 +5,7 @@ namespace ContactList.Models
     public class ContactsDbContext : DbContext
     {
         public DbSet<Contact> Contacts {get;set;}
+        public DbSet<Book> Books {get;set;}
 
         public ContactsDbContext(DbContextOptions<ContactsDbContext> options) : base(options)
         {

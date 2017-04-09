@@ -7,18 +7,18 @@ namespace ContactList.Controllers
 {
     public class ContactsController : Controller
     {
-        private ContactsDbContext _dbContext;
-        
+        private ContactsDbContext _dbContext;       
 
         public ContactsController(ContactsDbContext dbContext)
         {
             _dbContext = dbContext;
+            
         }
 
 
         [HttpGet]
         public IActionResult Index()
-        {
+        {            
             return View(_dbContext.Contacts);
         }
 
@@ -32,10 +32,15 @@ namespace ContactList.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(Contact contact)
         {
-            _dbContext.Contacts.Add(contact);
-            await _dbContext.SaveChangesAsync();
+            if (ModelState.IsValid)
+            {
+                _dbContext.Contacts.Add(contact);
+                await _dbContext.SaveChangesAsync();
 
-            return RedirectToAction("Index");
+                return RedirectToAction("Index");
+            }
+
+            return View(contact);
         }
 
         [HttpGet]
@@ -54,7 +59,33 @@ namespace ContactList.Controllers
             await _dbContext.SaveChangesAsync();
             return RedirectToAction("Index");
         }
-        
+
+        [HttpGet]
+        public IActionResult Delete(int id)
+        {
+            var contact = _dbContext.Contacts.FirstOrDefault(c => c.ContactId == id);
+            if (contact == null)
+                return NotFound();
+            return View(contact);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Destroy(int id)
+        {
+            var contact = _dbContext.Contacts.FirstOrDefault(c => c.ContactId == id);
+            if (contact == null)
+                return NotFound();
+            
+            _dbContext.Contacts.Remove(contact);
+            await _dbContext.SaveChangesAsync();
+
+            return RedirectToAction("Index");
+
+        }
+
+
+      
+      
 
 
     }
