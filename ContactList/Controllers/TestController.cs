@@ -19,11 +19,28 @@ namespace ContactList.Controllers
             _context = context;
         }
         public IEnumerable<Contact> GetAll()
-        {
-            Debug.WriteLine(_context.ToString());
+        {            
             return _context.Contacts.ToList();
-        }
+        }        
         
+    }
+
+    [Route("api/[controller]")]
+    public class TestbookController : Controller
+    {
+        private ContactsDbContext _context;
+
+        public TestbookController (ContactsDbContext context)
+        {
+            _context = context;            
+        }
+
+        public IEnumerable<Book> GetAll()
+        {            
+           return _context.Books.ToList();
+        }
+
+
     }
    
 }

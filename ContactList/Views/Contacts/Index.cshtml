@@ -25,6 +25,8 @@
             <td>@contact.EmailAddress</td>
             <td>
                <a asp-controller="Contacts" asp-action="Edit" asp-route-id="@contact.ContactId" > Edit </a>
+               |
+               <a  asp-action="Delete" asp-route-id="@contact.ContactId" > Delete </a>
             </td>
           </tr>
           }
