@@ -7,12 +7,12 @@ namespace ContactList.Controllers
 {
     public class ContactsController : Controller
     {
-        private ContactsDbContext _dbContext;
-        
+        private ContactsDbContext _dbContext;       
 
         public ContactsController(ContactsDbContext dbContext)
         {
             _dbContext = dbContext;
+            
         }
 
 

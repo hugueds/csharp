@@ -21,6 +21,9 @@ namespace ContactList
             services.AddDbContext<ContactsDbContext>(
                 options => options.UseSqlite("Data Source=Contacts.db")
             );
+            services.AddDbContext<BooksDbContext>(
+                options => options.UseSqlite("Data Source=Books.db")
+            );
             services.AddMvc();
         }
 
@@ -45,7 +48,8 @@ namespace ContactList
                 routes.MapRoute(
                     name : "default",
                     template : "{controller=Contacts}/{action=Index}/{id?}"
-                );
+                );              
+
             });
 
         }

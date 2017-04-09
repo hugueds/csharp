@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.Collections.Generic;
 
 namespace ContactList.Models
 {
@@ -12,5 +13,6 @@ namespace ContactList.Models
         public string Telephone {get;set;}
         [EmailAddressAttribute]
         public string EmailAddress {get;set;}
+        public IList<Book> Books {get;set;}
     }
 }
