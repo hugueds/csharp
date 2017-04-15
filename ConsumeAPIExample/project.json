@@ -11,7 +11,8 @@
     },
     "Microsoft.AspNetCore.Mvc" : {"version": "1.0.0"},
     "Microsoft.Extensions.Configuration.Json": { "version": "1.0.0"},
-    "Newtonsoft.Json" : "*"
+    "Newtonsoft.Json" : "*",
+    "System.Runtime.Serialization.Json"  : "*"
   },
 
   "frameworks": {

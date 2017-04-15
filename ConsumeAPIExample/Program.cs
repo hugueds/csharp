@@ -17,6 +17,8 @@ namespace ConsumeAPIExample
             //JavaScriptSerializer serializer = new JavaScriptSerializer();
 
             System.Console.WriteLine("1" + request);
+
+            Console.ReadKey();
             
 
 
