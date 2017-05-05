@@ -1,5 +1,7 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -26,16 +28,16 @@ namespace WebApiExample.Controllers
 
         // [HttpGet("{name}")]
         [HttpGet]
-        public IEnumerable<Person> Get(string name, int age, string email)
-        {            
+        public IEnumerable<Person> Get(string name, string id="999999")
+        {                    
+            Console.WriteLine($"{id}");
+           
             IList<Person> a = new List<Person>()
             {
-                new Person(name, age, email),
-                new Person(name, age, email),
-                new Person(name, age, email)
-            }
-            ;
-            return a;
+                new Person(name, 1, id),
+            };
+            return a;                                        
+
         }
 
         // POST api/values
